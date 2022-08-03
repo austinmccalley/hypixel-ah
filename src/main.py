@@ -1,8 +1,6 @@
 import pathlib
 import threading
 import requests
-
-from mysql.connector import connection
 from auctions import auction_close_loop, run_auctions
 from config import initConfig
 
