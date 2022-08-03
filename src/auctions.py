@@ -70,7 +70,11 @@ def get_auction(auction_id):
 
 
 def run_auctions():
-    return get_open_auctions(0)
+    while True:
+        if pycron.is_now('0 * * * *'):  # Every hour
+            get_open_auctions(0)
+
+            time.sleep(60)
 
 
 def get_open_auctions(curr=0):
