@@ -1,8 +1,6 @@
-import json
 import time
 import pycron
 import requests
-from tqdm import tqdm
 from mysql.connector import (connection, errorcode)
 import mysql.connector
 
