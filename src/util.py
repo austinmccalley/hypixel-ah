@@ -66,7 +66,7 @@ def unpack_nbt(tag):
     if isinstance(tag, TAG_List):
         return [unpack_nbt(i) for i in tag.tags]
     elif isinstance(tag, TAG_Compound):
-        return dict((i.name, unpack_nbt(i)) for i in tag.tags)
+        return {i.name: unpack_nbt(i) for i in tag.tags}
     else:
         return tag.value
 
