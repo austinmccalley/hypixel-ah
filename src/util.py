@@ -1,6 +1,5 @@
 import io
 import base64
-from turtle import color
 from nbt.nbt import TAG_List, TAG_Compound, NBTFile
 import re
 
