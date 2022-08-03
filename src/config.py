@@ -5,7 +5,6 @@ base_config = {
     'AUCTIONS_ENDED': 'https://api.hypixel.net/skyblock/auctions_ended',
     'AUCTIONS_CURRENT': 'https://api.hypixel.net/skyblock/auctions',
     'AUCTION_LOOKUP': 'https://api.hypixel.net/skyblock/auction',
-    'AUCTION_LOOKUP': 'https://api.hypixel.net/skyblock/auction',
     'API_KEY': 'bad',
 }
 
