@@ -22,13 +22,17 @@ def main():
     initConfig()
     checkItems()
 
-    th = threading.Thread(target=run_auctions)
+    th1 = threading.Thread(target=run_auctions)
+    th2 = threading.Thread(target=auction_close_loop)
     print("Starting mass collection of auctions")
-    th.start()
-    auction_close_loop()
+    th1.start()
+    th2.start()
 
-    th.join()
+    th1.join()
     print("Mass collection stopped")
+
+    th2.join()
+    print("Done")
 
 
 if __name__ == "__main__":
