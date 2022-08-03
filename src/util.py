@@ -24,28 +24,28 @@ colors = {
 }
 
 motd_colors = {
-  '\u00A74': '§4',
-  '\u00A7c': '§c',
-  '\u00A76': '§6',
-  '\u00A7e': '§e',
-  '\u00A72': '§2',
-  '\u00A7a': '§a',
-  '\u00A7b': '§b',
-  '\u00A73': '§3',
-  '\u00A71': '§1',
-  '\u00A79': '§9',
-  '\u00A7d': '§d',
-  '\u00A75': '§5',
-  '\u00A7f': '§f',
-  '\u00A77': '§7',
-  '\u00A78': '§8',
-  '\u00A70': '§0',
-  '\u00A7r': '§r',
-  '\u00A7l': '§l',
-  '\u00A7o': '§o',
-  '\u00A7n': '§n',
-  '\u00A7m': '§m',
-  '\u00A7k': '§k',
+    '\u00A74': '§4',
+    '\u00A7c': '§c',
+    '\u00A76': '§6',
+    '\u00A7e': '§e',
+    '\u00A72': '§2',
+    '\u00A7a': '§a',
+    '\u00A7b': '§b',
+    '\u00A73': '§3',
+    '\u00A71': '§1',
+    '\u00A79': '§9',
+    '\u00A7d': '§d',
+    '\u00A75': '§5',
+    '\u00A7f': '§f',
+    '\u00A77': '§7',
+    '\u00A78': '§8',
+    '\u00A70': '§0',
+    '\u00A7r': '§r',
+    '\u00A7l': '§l',
+    '\u00A7o': '§o',
+    '\u00A7n': '§n',
+    '\u00A7m': '§m',
+    '\u00A7k': '§k',
 }
 
 
@@ -71,31 +71,30 @@ def unpack_nbt(tag):
         return tag.value
 
 
-def parse_color(string: str, rev = False) -> str:
+def parse_color(string: str, rev=False) -> str:
 
     if rev:
-      regex = r"\\u00A7[0-9a-or]"
+        regex = r"\\u00A7[0-9a-or]"
 
-      matches = re.finditer(regex, string, re.MULTILINE)
+        matches = re.finditer(regex, string, re.MULTILINE)
 
-      for _matchNum, match in enumerate(matches, start=1):
-        k = match.group()
-        if k in motd_colors:
-          string = string.replace(k, motd_colors[k])
+        for _matchNum, match in enumerate(matches, start=1):
+            k = match.group()
+            if k in motd_colors:
+                string = string.replace(k, motd_colors[k])
 
-      string = string + '§r'
+        string = string + '§r'
 
     else:
-      color_regex = r"§[a-g0-9]"
+        color_regex = r"§[a-g0-9]"
 
-      matches = re.finditer(color_regex, string, re.MULTILINE)
+        matches = re.finditer(color_regex, string, re.MULTILINE)
 
-      for _matchNum, match in enumerate(matches, start=1):
-        k = match.group()
-        if k in colors:
-          string = string.replace(k, colors[k])
+        for _matchNum, match in enumerate(matches, start=1):
+            k = match.group()
+            if k in colors:
+                string = string.replace(k, colors[k])
 
-      string = string + '\033[0m'
+        string = string + '\033[0m'
 
     return string
-
